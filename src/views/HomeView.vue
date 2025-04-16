@@ -5,7 +5,7 @@
 
         <main class="main">
             <div class="container">
-                
+                <Registration/>
             </div>
         </main>
 
@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-
+import Registration from '@/components/Registration.vue';
 </script>
 
 <style lang="scss">
