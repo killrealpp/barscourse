@@ -1,23 +1,11 @@
 <template>
-    <div class="wrapper">
-
-        <!-- импорт хедер -->
-
-        <main class="main">
-            <div class="container">
-                
-            </div>
-        </main>
-
-        <!-- импорт футер -->
-
-    </div>
+    <main class="main">
+        <Register/>
+    </main>
 </template>
 
 <script setup>
-
+import Register from '../components/Register.vue';
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
