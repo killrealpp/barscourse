@@ -14,8 +14,8 @@ body{
     line-height: 1.5;
     background-color: #fff;
     color: #000;
-    overflow-x: hidden;
     min-height: 100vh;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -29,4 +29,9 @@ body{
     max-width: 462px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.error{
+    color: red;
+    font-size: 11px;
 }
