@@ -24,5 +24,15 @@ defineOptions({
     color: #fff;
     font-weight: 400;
     font-size: 17px;
+    &:hover {
+        background-color: #000000;
+    }
+    &:active {
+        background-color: #677393;
+    }
+    &:focus-visible {
+        outline: 2px solid #677393;
+    }
+
 }
 </style>
