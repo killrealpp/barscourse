@@ -7,49 +7,32 @@
                 </div>
                 <form class="register-form">
                     <label>
-                        <input 
-                        class="register-form__username" 
-                        type="text" 
-                        placeholder="@Имя пользователя"
-                        v-model="username"
-                        >
-                        <p class="usernameError error" v-if="usernameError">Пожалуйста, введите ваше ФИО</p>
+                        <input class="register-form__fio" type="text" placeholder="ФИО" v-model="fio">
+                        <div class="register-form__error">
+                            <p class="fioError error" v-if="fioError">Пожалуйста, введите ваше ФИО</p>
+                        </div>
                     </label>
-                    <label>
-                        <input 
-                        class="register-form__fio" 
-                        type="text" 
-                        placeholder="ФИО"
-                        v-model="fio"
-                        >
-                        <p class="fioError error" v-if="fioError">Пожалуйста, введите ваше ФИО</p>
-                    </label>
-                    <button 
-                        class="register-form__btn"
-                        @click.prevent="submitForm"
-                        >Зарегистрироваться
-                    </button>
+                    <my-button class="register-form__btn" @click.prevent="submitForm">Зарегистрироваться
+                    </my-button>
                 </form>
             </div>
         </div>
     </div>
-    <RegisterAfter v-if="isRegistered"/>
+    <RegisterAfter v-if="isRegistered" />
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 import axios from 'axios'
 import { useUserStore } from '../stores/userStore';
 import RegisterAfter from './RegisterAfter.vue';
 
 const userStore = useUserStore()
 const fio = ref('')
-const username = ref('')
 const fioError = ref(false);
-const usernameError = ref(false);
 const isRegistered = ref(false);
 
-const submitForm = async ()=>{
+const submitForm = async () => {
     let isValid = true
 
     if (!fio.value) {
@@ -59,58 +42,46 @@ const submitForm = async ()=>{
         fioError.value = false;
     }
 
-    if (!username.value) {
-        usernameError.value = true;
-        isValid = false;
-    } else {
-        usernameError.value = false;
-    }
-    
     // const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
     const userId = 12345
     // надо будет убрать
-    
-    if(isValid && userId){
-        userStore.setUserData(userId, username.value, fio.value)
-        try{
-            const response = await axios.post('https://jsonplaceholder.typicode.com/posts',{
+
+    if (isValid && userId) {
+        userStore.setUserData(userId, fio.value)
+        try {
+            const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
                 user_id: userId,
-                userName: username.value,
                 fio: fio.value
             })
             console.log('клик по кнопке', response)
             isRegistered.value = true;
-        } catch(error){
+        } catch (error) {
             console.error('Ошибка при отправке данных', error)
         }
-    } else{
-        alert('не удалось получить ID пользователя')
     }
-
 }
 
 
 </script>
 
 <style lang="scss">
-
-.register{
+.register {
     padding: 71px 0 218px;
 
-    &__inner{
+    &__inner {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 103px;
     }
 
-    &-form{
+    &-form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 18px;
+        gap: 10px;
 
-        &__username, .register-form__fio{
+        &__fio {
             max-width: 257px;
             width: 100%;
             padding: 8px 11px;
@@ -120,25 +91,20 @@ const submitForm = async ()=>{
             font-size: 17px;
         }
 
-        &__btn{
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        &__error{
+            min-height: 18px;
+        }
+
+        &__btn {
             max-width: 257px;
-            width: 100%;
-            border-radius: 5px;
-            background-color: #191F32;
-            color: #fff;
-            font-weight: 400;
-            font-size: 17px;
+            padding: 8px 0;
         }
     }
 }
 
 
-.logo{
-    &__img{
+.logo {
+    &__img {
         max-width: 122px;
         width: 100%;
     }
