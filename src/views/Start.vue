@@ -1,6 +1,6 @@
 <template>
     <main class="main">
-        <Loading v-if="loading"/>
+        <loading v-if="loading"/>
         <Register v-if="!registerStatus && !loading" />
     </main>
 </template>
@@ -8,9 +8,9 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import Register from '../components/Register.vue';
-import Loading from '../components/Loading.vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
+import Loading from '../components/Loading.vue';
 
 const router = useRouter();
 const registerStatus = ref(false);
