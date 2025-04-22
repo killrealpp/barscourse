@@ -11,10 +11,6 @@ const routes = [
         path: '/home', 
         component: Home 
     },
-    // { 
-    //     path: '/about', 
-    //     component: About 
-    // }
 ]
 
 const router = createRouter({
