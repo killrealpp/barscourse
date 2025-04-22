@@ -1,6 +1,7 @@
 <template>
     <main class="main">
         <Breadcrumbs/>
+        
         <Navbar/>
     </main>
 </template>

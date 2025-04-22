@@ -41,6 +41,7 @@ const breadcrumbs = breadcrumbsStore.breadcrumbs;
 .breadcrumbs {
     font-size: 14px;
     font-weight: 400;
+    padding: 25px 0;
     
     a{
         text-decoration: none;
