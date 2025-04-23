@@ -2,28 +2,28 @@
     <div class="blocks">
         <div class="container">
             <div class="blocks__inner">
-                <div class="blocks-item">
+                <div class="blocks-item" @click="router.push('/block-1')">
                     <img class="blocks-item__img" src="/block1.webp" alt="block1">
                     <div class="blocks-item__texts">
                         <h6 class="blocks-item__title">Блок 1</h6>
                         <p class="blocks-item__text">Тайм-менеджмент</p>
                     </div>
                 </div>
-                <div class="blocks-item">
+                <div class="blocks-item" @click="router.push('/block-2')">
                     <img class="blocks-item__img" src="/block2.webp" alt="block2">
                     <div class="blocks-item__texts">
                         <h6 class="blocks-item__title">Блок 2</h6>
                         <p class="blocks-item__text">Лидерство</p>
                     </div>
                 </div>
-                <div class="blocks-item">
+                <div class="blocks-item" @click="router.push('/block-3')">
                     <img class="blocks-item__img" src="/block3.webp" alt="block3">
                     <div class="blocks-item__texts">
                         <h6 class="blocks-item__title">Блок 3</h6>
                         <p class="blocks-item__text">Тайм-менеджмент</p>
                     </div>
                 </div>
-                <div class="blocks-item">
+                <div class="blocks-item" @click="router.push('/block-4')">
                     <img class="blocks-item__img" src="/block4.webp" alt="block4">
                     <div class="blocks-item__texts">
                         <h6 class="blocks-item__title">Блок 4</h6>
@@ -36,7 +36,8 @@
 </template>
 
 <script setup>
-
+import { useRouter } from 'vue-router';
+const router = useRouter();
 </script>
 
 <style lang="scss">
