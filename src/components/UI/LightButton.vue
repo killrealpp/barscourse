@@ -1,5 +1,5 @@
 <template>
-    <button class="btn">
+    <button class="btn__light">
         <slot></slot>
     </button>
 </template>
@@ -8,29 +8,29 @@
 import { defineOptions } from 'vue';
 
 defineOptions({
-    name: 'my-button'
+    name: 'light-button'
 })
 
 </script>
 
 <style lang="scss">
-.btn {
+.btn__light {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     border-radius: 5px;
-    background-color: #191F32;
-    color: #fff;
+    background-color: #fff;
+    color: #191F32;
     font-weight: 400;
     font-size: 17px;
-    border: 2px solid transparent;
+    border: 2px solid #191F32;
     transition: all 0.3s ease;
 
     &:hover {
-        background-color: #fff;
-        color: #191F32;
-        border: 2px solid #191F32;  
+        background-color: #191F32;
+        color: #fff;
+        border: 2px solid #191F32;
     }
 }
 </style>
