@@ -25,7 +25,7 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { useUserStore } from '../stores/userStore';
-import RegisterAfter from './RegisterAfter.vue';
+import RegisterAfter from '@/components/RegisterAfter.vue';
 
 const userStore = useUserStore()
 const fio = ref('')

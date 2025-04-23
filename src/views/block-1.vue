@@ -28,8 +28,8 @@
 </template>
 
 <script setup>
-import Navbar from '../components/Navbar.vue';
-import Breadcrumbs from '../components/Breadcrumbs.vue';
+import Navbar from '@/components/Navbar.vue';
+import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 </script>

@@ -7,8 +7,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import Register from '../components/Register.vue';
-import Loading from '../components/Loading.vue';
+import Register from '@/components/Register.vue';
+import Loading from '@/components/Loading.vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
 

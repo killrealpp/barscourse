@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Start from '@/views/Start.vue'
 import Home from '@/views/Home.vue'
-import block1 from '../views/block-1.vue'
-import block2 from '../views/block-2.vue'
-import block3 from '../views/block-3.vue'
-import block4 from '../views/block-4.vue'
+import block1 from '@/views/block-1.vue'
+import block2 from '@/views/block-2.vue'
+import block3 from '@/views/block-3.vue'
+import block4 from '@/views/block-4.vue'
 
 const routes = [
     { 
