@@ -8,9 +8,9 @@
                     <ul class="block__content">
                         <li class="block__item" @click="router.push('/time-managment')">1. Тайм-менеджмент тим лида</li>
                         <li class="block__item" @click="router.push('/matrix')">2. Матрица Эйзенхауэра</li>
-                        <li class="block__item">3. Метод ABCDE</li>
-                        <li class="block__item">4. Итоговый тест</li>
-                        <li class="block__item">5. Книги</li>
+                        <li class="block__item" @click="router.push('/metodABCD')">3. Метод ABCDE</li>
+                        <li class="block__item" @click="router.push('/test-1')">4. Итоговый тест</li>
+                        <li class="block__item" @click="router.push('/books-1')">5. Книги</li>
                     </ul>
                     <div class="block__exit" @click="router.push('/home')">
                         <svg width="23" height="8" viewBox="0 0 23 8" fill="none">

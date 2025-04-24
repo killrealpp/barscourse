@@ -9,6 +9,7 @@ import TimeManagment from '@/views/Time-managment.vue'
 import Matrix from '@/views/Matrix.vue'
 import MetodABCD from '@/views/MetodABCD.vue'
 import Test1 from '@/views/Test1.vue'
+import books1 from '@/views/books-1.vue'
 
 
 
@@ -56,6 +57,10 @@ const routes = [
     {
         path: '/test-1', 
         component: Test1 
+    },
+    {
+        path: '/books-1', 
+        component: books1 
     },
 ]
 
