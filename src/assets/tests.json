@@ -1,0 +1,48 @@
+[
+    {
+      "Id": 1,
+      "Name": "Какой подход эффективен для приоритетов задач?",
+      "Answers": [
+        { "text": "Метод ABCDE", "correct": true },
+        { "text": "Метод 'Сделай это позже'", "correct": false },
+        { "text": "Метод 'Случайного выбора'", "correct": false }
+      ]
+    },
+    {
+      "Id": 2,
+      "Name": "Какая из следующих технологий используется для создания веб-приложений?",
+      "Answers": [
+        { "text": "Vue.js", "correct": true },
+        { "text": "Python", "correct": false },
+        { "text": "Excel", "correct": false }
+      ]
+    },
+    {
+      "Id": 2,
+      "Name": "Какая из следующих технологий используется для создания веб-приложений?",
+      "Answers": [
+        { "text": "Vue.js", "correct": true },
+        { "text": "Python", "correct": false },
+        { "text": "Excel", "correct": false }
+      ]
+    },
+    {
+      "Id": 2,
+      "Name": "Какая из следующих технологий используется для создания веб-приложений?",
+      "Answers": [
+        { "text": "Vue.js", "correct": true },
+        { "text": "Python", "correct": false },
+        { "text": "Excel", "correct": false }
+      ]
+    },
+    {
+      "Id": 2,
+      "Name": "Какая из следующих технологий используется для создания веб-приложений?",
+      "Answers": [
+        { "text": "Vue.js", "correct": true },
+        { "text": "Python", "correct": false },
+        { "text": "Excel", "correct": false }
+      ]
+    }
+  ]
+  

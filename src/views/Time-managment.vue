@@ -33,6 +33,7 @@
                         </p>
                         <p class="time-content__text"><b>6. Анализ и рефлексия.</b> Подводить итоги дня, недели, месяца. Вносить корректировки в свой план.</p>
                     </div>
+                    
                     <div class="time__btns">
                         <light-button 
                             class="time__btns-light"
