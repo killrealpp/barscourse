@@ -6,6 +6,10 @@ import block2 from '@/views/block-2.vue'
 import block3 from '@/views/block-3.vue'
 import block4 from '@/views/block-4.vue'
 import TimeManagment from '@/views/Time-managment.vue'
+import Matrix from '@/views/Matrix.vue'
+import MetodABCD from '@/views/MetodABCD.vue'
+import Test1 from '@/views/Test1.vue'
+
 
 
 const routes = [
@@ -40,6 +44,18 @@ const routes = [
     {
         path: '/time-managment', 
         component: TimeManagment 
+    },
+    {
+        path: '/matrix', 
+        component: Matrix 
+    },
+    {
+        path: '/metodABCD', 
+        component: MetodABCD 
+    },
+    {
+        path: '/test-1', 
+        component: Test1 
     },
 ]
 

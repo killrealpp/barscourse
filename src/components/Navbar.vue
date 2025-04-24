@@ -48,6 +48,13 @@
 
 <style lang="scss">
 .navbar{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 5px 0;
     background-color: #fff;
 

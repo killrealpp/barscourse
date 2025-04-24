@@ -34,8 +34,16 @@
                         <p class="time-content__text"><b>6. Анализ и рефлексия.</b> Подводить итоги дня, недели, месяца. Вносить корректировки в свой план.</p>
                     </div>
                     <div class="time__btns">
-                        <light-button class="time__btns-light">вернуться</light-button>
-                        <my-button class="time__btns-dark">продолжить</my-button>
+                        <light-button 
+                            class="time__btns-light"
+                            @click="router.push('/block-1')"
+                            >вернуться
+                        </light-button>
+                        <my-button 
+                            class="time__btns-dark"
+                            @click="router.push('/matrix')"
+                            >продолжить
+                        </my-button>
                     </div>
                 </div>
             </div>
@@ -47,11 +55,14 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
+
+import { useRouter } from 'vue-router';
+const router = useRouter();
 </script>
 
 <style lang="scss">
 .time{
-    padding: 14px 0 50px;
+    padding: 14px 0 80px;
     background-color: #fff;
 
     &__inner{

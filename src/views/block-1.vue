@@ -7,7 +7,7 @@
                     <h3 class="block__title">Тайм-менеджмент</h3>
                     <ul class="block__content">
                         <li class="block__item" @click="router.push('/time-managment')">1. Тайм-менеджмент тим лида</li>
-                        <li class="block__item">2. Матрица Эйзенхауэра</li>
+                        <li class="block__item" @click="router.push('/matrix')">2. Матрица Эйзенхауэра</li>
                         <li class="block__item">3. Метод ABCDE</li>
                         <li class="block__item">4. Итоговый тест</li>
                         <li class="block__item">5. Книги</li>
