@@ -6,10 +6,10 @@
                 <div class="block__inner">
                     <h3 class="block__title">Управление задачами</h3>
                     <ul class="block__content">
-                        <li class="block__item">1. Постановка задач (модели)</li>
-                        <li class="block__item">2. Делегирование</li>
+                        <li class="block__item" @click="router.push('/models')">1. Постановка задач (модели)</li>
+                        <li class="block__item" @click="router.push('/deleg')">2. Делегирование</li>
                         <li class="block__item">3. Итоговый тест</li>
-                        <li class="block__item">4. Книги</li>
+                        <li class="block__item" @click="router.push('/books-3')">4. Книги</li>
                     </ul>
                     <div class="block__exit" @click="router.push('/home')">
                         <svg width="23" height="8" viewBox="0 0 23 8" fill="none">

@@ -13,10 +13,12 @@ import books1 from '@/views/books-1.vue'
 import Culture from '@/views/Culture.vue'
 import Roles from '@/views/Roles.vue'
 import books4 from '@/views/books-4.vue'
-import Books4 from '@/views/books-4.vue'
 import Lider from '@/views/Lider.vue'
 import LiderStyle from '@/views/Lider-style.vue'
-
+import books2 from '@/views/books-2.vue'
+import Models from '@/views/Models.vue'
+import Deleg from '@/views/deleg.vue'
+import Books3 from '@/views/books-3.vue'
 
 const routes = [
     { 
@@ -77,7 +79,11 @@ const routes = [
     },
     {
         path: '/books-4', 
-        component: Books4 
+        component: books4 
+    },
+    {
+        path: '/books-3', 
+        component: Books3 
     },
     {
         path: '/lider', 
@@ -86,6 +92,18 @@ const routes = [
     {
         path: '/lider-style', 
         component: LiderStyle 
+    },
+    {
+        path: '/books-2', 
+        component: books2 
+    },
+    {
+        path: '/models', 
+        component: Models 
+    },
+    {
+        path: '/deleg', 
+        component: Deleg 
     },
 ]
 
