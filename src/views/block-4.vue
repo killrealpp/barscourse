@@ -6,9 +6,9 @@
                 <div class="block__inner">
                     <h3 class="block__title">Управление задачами</h3>
                     <ul class="block__content">
-                        <li class="block__item">1. Культура совместной работы</li>
-                        <li class="block__item">2. Роли в команде</li>
-                        <li class="block__item">3. Книги</li>
+                        <li class="block__item" @click="router.push('/culture')">1. Культура совместной работы</li>
+                        <li class="block__item" @click="router.push('/roles')">2. Роли в команде</li>
+                        <li class="block__item" @click="router.push('/books-4')">3. Книги</li>
                     </ul>
                     <div class="block__exit" @click="router.push('/home')">
                         <svg width="23" height="8" viewBox="0 0 23 8" fill="none">

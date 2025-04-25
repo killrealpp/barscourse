@@ -10,7 +10,12 @@ import Matrix from '@/views/Matrix.vue'
 import MetodABCD from '@/views/MetodABCD.vue'
 import Test1 from '@/views/Test1.vue'
 import books1 from '@/views/books-1.vue'
-
+import Culture from '@/views/Culture.vue'
+import Roles from '@/views/Roles.vue'
+import books4 from '@/views/books-4.vue'
+import Books4 from '@/views/books-4.vue'
+import Lider from '@/views/Lider.vue'
+import LiderStyle from '@/views/Lider-style.vue'
 
 
 const routes = [
@@ -61,6 +66,26 @@ const routes = [
     {
         path: '/books-1', 
         component: books1 
+    },
+    {
+        path: '/culture', 
+        component: Culture 
+    },
+    {
+        path: '/roles', 
+        component: Roles 
+    },
+    {
+        path: '/books-4', 
+        component: Books4 
+    },
+    {
+        path: '/lider', 
+        component: Lider 
+    },
+    {
+        path: '/lider-style', 
+        component: LiderStyle 
     },
 ]
 

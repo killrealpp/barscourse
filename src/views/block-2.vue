@@ -6,8 +6,8 @@
                 <div class="block__inner">
                     <h3 class="block__title">Лидерство</h3>
                     <ul class="block__content">
-                        <li class="block__item">1. Кто такой лидер</li>
-                        <li class="block__item">2. Стили лидерства</li>
+                        <li class="block__item" @click="router.push('/lider')">1. Кто такой лидер</li>
+                        <li class="block__item" @click="router.push('/lider-style')">2. Стили лидерства</li>
                         <li class="block__item">3. Метод ABCDE</li>
                         <li class="block__item">4. Книги</li>
                     </ul>

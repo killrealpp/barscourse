@@ -15,14 +15,8 @@
                         <div class="books-pdf">
                             <div class="books-pdf__item">
                                 <img src="/pdf.svg" alt="" class="books-pdf__item-img">
-                                <h6 class="books-pdf__item-title">Сверх продуктивность,
-                                    Михаил Алистер
-                                </h6>
-                            </div>
-                            <div class="books-pdf__item">
-                                <img src="/pdf.svg" alt="" class="books-pdf__item-img">
-                                <h6 class="books-pdf__item-title">Сверх продуктивность,
-                                    Михаил Алистер
+                                <h6 class="books-pdf__item-title">5 пороков команды.
+                                    Притчи о лидерстве
                                 </h6>
                             </div>
                         </div>

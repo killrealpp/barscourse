@@ -1,46 +1,43 @@
 <template>
     <div class="test">
-        <h4 class="test__name">{{ test.question }}</h4>
+        <h4 class="test__name">{{ question.name }}</h4>
         <ul class="test__list">
-            <li v-for="(option, index) in test.options" :key="index" :class="{
-                'correct': option.correct && option.selected,
-                'incorrect': !option.correct && option.selected,
-                'selected': option.selected
-            }" @click="selectAnswer(option)" class="test__item" :disabled="test.selectedAnswer" 
-                >
-                {{ option.text }}
+            <li 
+                class="test__item"
+                v-for="answer in question.answers"
+                :key="answer.id"
+            >
+                {{ answer.name }}
             </li>
         </ul>
     </div>
 </template>
 
-
 <script setup>
-import { defineProps, ref } from 'vue';
+import { defineProps, ref, onMounted} from 'vue';
 
 const props = defineProps({
-    test: Object
+    question: Object
 });
 
-function selectAnswer(option) {
-    if (!option.selected) {
-        option.selected = true;
 
-        // Если ответ правильный, устанавливаем флаг isCorrect в true
-        if (option.correct) {
-            option.isCorrect = true;  // Флаг для правильного ответа
-            console.log('true');
-        } else {
-            option.isCorrect = false; // Флаг для неправильного ответа
-            console.log('false');
-        }
+// function selectAnswer(option) {
+//     if (!option.selected) {
+//         option.selected = true;
 
-        props.test.selectedAnswer = true;
-    }
-}
+//         // Если ответ правильный, устанавливаем флаг isCorrect в true
+//         if (option.correct) {
+//             option.isCorrect = true;  // Флаг для правильного ответа
+//             console.log('true');
+//         } else {
+//             option.isCorrect = false; // Флаг для неправильного ответа
+//             console.log('false');
+//         }
+
+//         props.test.selectedAnswer = true;
+//     }
+// }
 </script>
-
-
 
 <style lang="scss">
 .test {

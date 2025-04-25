@@ -1,46 +1,45 @@
 <template>
     <div class="main">
-    <div class="tests">
-        <div class="container">
-            <div class="tests__inner">
-                <h5 class="tests__title">Итоговое тестирование</h5>
+        <div class="tests">
+            <div class="container">
+                <div class="tests__inner">
+                    <h5 v-if="tests[0]" class="tests__title">{{tests[0].name}}</h5>
 
-                <div v-if="error" class="error-message">{{ error }}</div>
+                    <div v-if="error" class="error-message">{{ error }}</div>
 
-                <Loading v-if="loading" />
+                    <Loading v-if="loading" /> 
 
-                <TestItem v-for="test in tests" :key="test.id" :test="test" />
+                    <div v-if="tests[0]">
+                        <TestItem v-for="question in tests[0].questions" :key="question.id" :question="question"  />
+                    </div>
 
-                <div class="time__btns tests__btns">
-                    <light-button class="time__btns-light">вернуться
-                    </light-button>
-                    <my-button class="time__btns-dark">продолжить
-                    </my-button>
+                    <div class="time__btns tests__btns">
+                        <light-button class="time__btns-light">вернуться</light-button>
+                        <my-button class="time__btns-dark">продолжить</my-button>
+                    </div>
+
                 </div>
-
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script setup>
 import Loading from '@/components/Loading.vue';
 import TestItem from '@/components/TestItem.vue';
-import { onMounted } from 'vue';
 import { useTestsStore } from '@/stores/tests';
+import { onMounted } from 'vue';
 
 const store = useTestsStore();
 
-const tests = store.tests;
 const loading = store.loading;
 const error = store.error;
+const tests = store.tests
 
 onMounted(() => {
-    if (tests.length === 0) {
-        store.fetchTests(); // Загружаем тесты из локального файла
-    }
+    store.fetchTests();
 });
+
 </script>
 
 <style lang="scss">
@@ -60,7 +59,7 @@ onMounted(() => {
         text-align: center;
     }
 
-    &__btns{
+    &__btns {
         padding-bottom: 100px;
     }
 }
