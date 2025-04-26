@@ -6,6 +6,12 @@
                 class="test__item"
                 v-for="answer in question.answers"
                 :key="answer.id"
+                :class="{
+                    'correct': isAnswerCorrect && answer.isRight,
+                    'incorrect': isAnswerIncorrect && !answer.isRight
+                }"
+                @click="selectAnswer(answer)"
+                :disabled="isAnswerSelected"
             >
                 {{ answer.name }}
             </li>
@@ -14,30 +20,37 @@
 </template>
 
 <script setup>
-import { defineProps, ref, onMounted} from 'vue';
+import { defineProps, ref } from 'vue';
+import { useTestsStore } from '@/stores/tests';
+
+const store = useTestsStore()
 
 const props = defineProps({
     question: Object
 });
 
+const isAnswerCorrect = ref(false);
+const isAnswerIncorrect = ref(false);
+const isAnswerSelected = ref(false);
 
-// function selectAnswer(option) {
-//     if (!option.selected) {
-//         option.selected = true;
-
-//         // Если ответ правильный, устанавливаем флаг isCorrect в true
-//         if (option.correct) {
-//             option.isCorrect = true;  // Флаг для правильного ответа
-//             console.log('true');
-//         } else {
-//             option.isCorrect = false; // Флаг для неправильного ответа
-//             console.log('false');
-//         }
-
-//         props.test.selectedAnswer = true;
-//     }
-// }
+const selectAnswer = (answer) => {
+    if (!isAnswerSelected.value) {  
+        isAnswerSelected.value = true;  
+        if (answer.isRight) {
+            isAnswerCorrect.value = true;
+            isAnswerIncorrect.value = false;
+            store.setCorrectAnswer()
+            
+        } else {
+            isAnswerCorrect.value = false;
+            isAnswerIncorrect.value = true;
+            console.log('false');  // Выбран неправильный ответ
+        }
+        store.answerCounter()
+    }
+};
 </script>
+
 
 <style lang="scss">
 .test {
@@ -74,17 +87,15 @@ const props = defineProps({
 
     &__item.correct {
         background-color: rgba(0, 255, 0, 0.7);
-        /* Правильный ответ */
     }
 
     &__item.incorrect {
         background-color: rgba(255, 0, 0, 0.7);
-        /* Неправильный ответ */
     }
 
     &__item:disabled {
-        cursor: not-allowed;
-        background-color: rgba(200, 200, 200, 0.3);
+        pointer-events: none; 
+        opacity: 0.6;  
     }
 }
 </style>
