@@ -9,13 +9,8 @@
 
                     <Loading v-if="loading" /> 
 
-                    <div v-if="tests[testId - 1]">
+                    <div v-if="tests[testId - 1]" class="test__wrapper">
                         <TestItem v-for="question in tests[testId - 1].questions" :key="question.id" :question="question"  />
-                    </div>
-
-                    <div class="time__btns tests__btns">
-                        <light-button class="time__btns-light">вернуться</light-button>
-                        <my-button class="time__btns-dark">продолжить</my-button>
                     </div>
 
                 </div>
@@ -156,5 +151,9 @@ onMounted(() => {
         width: 100%;
         flex-wrap: nowrap;
     }
+}
+
+.test__wrapper{
+    padding-bottom: 100px;
 }
 </style>

@@ -26,8 +26,8 @@
                             </div>
                         </div>
                         <div class="books__btns">
-                            <my-button class="books__dark">Перейти к блоку 2</my-button>
-                            <light-button class="books__light">Вернуться назад</light-button>
+                            <my-button class="books__dark"  @click="router.push('/block-4')">Перейти к блоку 4</my-button>
+                            <light-button class="books__light"  @click="router.push('/block-3')">Вернуться назад</light-button>
                         </div>
                     </div>
                 </div>
@@ -39,6 +39,8 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 </script>
 
 <style lang="scss">

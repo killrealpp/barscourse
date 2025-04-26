@@ -48,7 +48,7 @@
                         </light-button>
                         <my-button 
                             class="time__btns-dark"
-                            @click="router.push('/books-4')"
+                            @click="router.push('/books-3')"
                             >продолжить
                         </my-button>
                     </div>
