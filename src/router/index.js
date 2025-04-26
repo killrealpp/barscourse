@@ -62,7 +62,7 @@ const routes = [
         component: MetodABCD 
     },
     {
-        path: '/test-1', 
+        path: '/test-:id', 
         component: Test1 
     },
     {

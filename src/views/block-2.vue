@@ -8,7 +8,7 @@
                     <ul class="block__content">
                         <li class="block__item" @click="router.push('/lider')">1. Кто такой лидер</li>
                         <li class="block__item" @click="router.push('/lider-style')">2. Стили лидерства</li>
-                        <li class="block__item">3. Итоговый тест</li>
+                        <li class="block__item" @click="router.push('/test-2')">3. Итоговый тест</li>
                         <li class="block__item" @click="router.push('/books-2')">4. Книги</li>
                     </ul>
                     <div class="block__exit" @click="router.push('/home')">

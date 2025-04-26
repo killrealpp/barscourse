@@ -3,14 +3,14 @@
         <div class="tests">
             <div class="container">
                 <div class="tests__inner">
-                    <h5 v-if="tests[0]" class="tests__title">{{tests[0].name}}</h5>
+                    <h5 v-if="tests[testId - 1]" class="tests__title">{{tests[testId - 1].name}}</h5>
 
                     <div v-if="error" class="error-message">{{ error }}</div>
 
                     <Loading v-if="loading" /> 
 
-                    <div v-if="tests[0]">
-                        <TestItem v-for="question in tests[0].questions" :key="question.id" :question="question"  />
+                    <div v-if="tests[testId - 1]">
+                        <TestItem v-for="question in tests[testId - 1].questions" :key="question.id" :question="question"  />
                     </div>
 
                     <div class="time__btns tests__btns">
@@ -29,8 +29,12 @@ import Loading from '@/components/Loading.vue';
 import TestItem from '@/components/TestItem.vue';
 import { useTestsStore } from '@/stores/tests';
 import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
+const route = useRoute()
 const store = useTestsStore();
+
+const testId = route.params.id
 
 const loading = store.loading;
 const error = store.error;
@@ -38,6 +42,7 @@ const tests = store.tests
 
 onMounted(() => {
     store.fetchTests();
+    
 });
 
 </script>

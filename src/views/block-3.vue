@@ -8,7 +8,7 @@
                     <ul class="block__content">
                         <li class="block__item" @click="router.push('/models')">1. Постановка задач (модели)</li>
                         <li class="block__item" @click="router.push('/deleg')">2. Делегирование</li>
-                        <li class="block__item">3. Итоговый тест</li>
+                        <li class="block__item" @click="router.push('/test-3')">3. Итоговый тест</li>
                         <li class="block__item" @click="router.push('/books-3')">4. Книги</li>
                     </ul>
                     <div class="block__exit" @click="router.push('/home')">

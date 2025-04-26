@@ -7,7 +7,6 @@ export const useTestsStore = defineStore('tests', () => {
     const loading = ref(false);
     const error = ref(null);
     const tests = ref([]);
-    // const questions = ref([])
 
     const fetchTests = async () => {
         loading.value = true;
@@ -18,7 +17,10 @@ export const useTestsStore = defineStore('tests', () => {
             const response = await axios.get('src/assets/test.json')
 
             tests.value = [...response.data.tests]
-            
+
+            // console.log('первый', tests[0].name)
+            // console.log('второй', tests[1].name)
+            // console.log('третий', tests[2].name)
             // console.log(tests.value)
 
             // const response = await axios({
