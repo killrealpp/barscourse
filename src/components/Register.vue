@@ -43,15 +43,17 @@ const submitForm = async () => {
     }
 
     // const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
-    const userId = 12345
+    const userId = 1234567
     // надо будет убрать
 
     if (isValid && userId) {
         userStore.setUserData(userId, fio.value)
         try {
-            const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
-                user_id: userId,
-                fio: fio.value
+            const response = await axios.post('https://f274-84-17-55-155.ngrok-free.app/api/Users', {
+                name: fio.value,
+                surname: "student",
+                tgId: "userId",
+                roleId: 2
             })
             console.log('клик по кнопке', response)
             isRegistered.value = true;
@@ -91,7 +93,7 @@ const submitForm = async () => {
             font-size: 17px;
         }
 
-        &__error{
+        &__error {
             min-height: 18px;
         }
 

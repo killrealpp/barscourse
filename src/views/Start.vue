@@ -18,22 +18,20 @@ const loading = ref(true);
 
 onMounted(async ()=>{
     // const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
-    const userId = 12345
+    const userId = 123457
     console.log(userId)
     // надо будет убрать
 
     if (userId){
         try{
-            const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
-                user_id: userId
+            const response = await axios.post('https://f274-84-17-55-155.ngrok-free.app/api/Users/authenticate', {
+                tgId: userId.toString(),
             })
-            console.log(response)
-            if (response.data.exists){
-                // пользователь есть, отправляем на главную
-                router.push('/home');
-            } else{
-                // показываем форму регистрации
+            console.log('tesetese', response.status)
+            if (response.status === 401){
                 registerStatus.value = false
+            } else{
+                router.push('/home');
             }
         } catch (error){
             console.error('Ошибка при проверке ID:', error);

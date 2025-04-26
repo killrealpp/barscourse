@@ -68,11 +68,43 @@ export const useTestsStore = defineStore('tests', () => {
                 console.log('молодец 2')
             }
 
-            ///тут хочу запрос post сделать на сервер
-
-            ///как мне это сделать?
+            getId()
         }
     }
+
+    const getId = async ()=>{
+
+        // const tgId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+        const tg_id = 1234
+
+        try{    
+
+            const response = await axios.post('https://f274-84-17-55-155.ngrok-free.app/api/Users/authenticate', {
+                tgId: tg_id.toString()
+            })
+
+            const id = response.data.id
+
+            setResult(id)
+            
+
+        } catch (e){
+            console.error('Ошибка при получении id',e)
+        }
+    }
+
+    const setResult = async (id)=>{
+        try{
+            const response = await axios.post('https://f274-84-17-55-155.ngrok-free.app/api/TestResult',{
+                userId: id,
+                testId: testId.value,
+                countRight: correctAnswer.value
+            })
+            console.log(response.data)
+        }catch(e){
+            console.error('ошибка при отправке результатов', e)
+        }
+    } 
 
     const resetTest = ()=>{
         answerCount.value = 0;  

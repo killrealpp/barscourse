@@ -9,6 +9,7 @@ export const useUserStore = defineStore('user', ()=>{
         // userId.value = id,
         userId.value = 123456,
         fio.value = userFio
+        
     }
 
     return {userId, fio, setUserData}
