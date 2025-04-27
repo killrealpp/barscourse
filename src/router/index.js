@@ -20,6 +20,8 @@ import Models from '@/views/Models.vue';
 import Deleg from '@/views/deleg.vue';
 import Books3 from '@/views/books-3.vue';
 import Progress from '@/views/Progress.vue';
+import Support from '@/views/Support.vue';
+import Questions from '@/views/Questions.vue';
 
 const routes = [
     {
@@ -126,6 +128,16 @@ const routes = [
         path: '/progress',
         component: Progress,
         meta: { breadcrumb: 'Прогресс' }
+    },
+    {
+        path: '/support',
+        component: Support,
+        meta: { breadcrumb: 'Поддержка' }
+    },
+    {
+        path: '/questions',
+        component: Questions,
+        meta: { breadcrumb: 'Вопросы' }
     },
 ];
 
