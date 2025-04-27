@@ -20,7 +20,7 @@ export const useTestsStore = defineStore('tests', () => {
     const spanWidth = ref(0)
     const lastProgressStatus = ref(null)
 
-
+    
     const fetchTests = async () => {
         loading.value = true;
         error.value = null;
@@ -109,6 +109,7 @@ export const useTestsStore = defineStore('tests', () => {
     } 
 
     const getIdWithProg = async()=>{
+        loading.value = true
         const tg_id = 1234
         try{    
             const response = await axios.post('https://f274-84-17-55-155.ngrok-free.app/api/Users/authenticate', {
@@ -118,10 +119,13 @@ export const useTestsStore = defineStore('tests', () => {
             getResult(id)
         } catch(e){
             console.error('ошибка при получении id ', e)
+        } finally{
+            loading.value = false
         }
     }
 
     const getResult = async (id) => {
+        spanWidth.value = 0
         try {
             const response = await axios.get(`https://f274-84-17-55-155.ngrok-free.app/api/TestResult/user/${id}`, {
                 headers: {

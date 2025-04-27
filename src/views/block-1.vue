@@ -32,9 +32,7 @@ import Navbar from '@/components/Navbar.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
-// const arr = [
-//     {id: 1, name: 'sds', }
-// ]
+
 </script>
 
 <style lang="scss">

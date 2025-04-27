@@ -35,6 +35,7 @@ const store = useTestsStore()
 const router = useRouter();
 
 const progressEnd = ()=>{
+    console.log('click')
     store.lastProgressStatus = true
     router.push('/books-4')
 }

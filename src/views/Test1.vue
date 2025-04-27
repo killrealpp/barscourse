@@ -10,6 +10,7 @@
 import Navbar from '@/components/Navbar.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import Tests from '@/components/Tests.vue';
+
 </script>
 
 <style lang="scss" scoped>

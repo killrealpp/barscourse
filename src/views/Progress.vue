@@ -1,7 +1,7 @@
 <template>
     <main class="main">
         <Breadcrumbs/>
-        <div class="progress">
+        <div v-if="!store.loading" class="progress">
             <div class="container">
                 <div class="progress__inner">
                     <h6 class="progress__title">Ваш прогресс по курсу</h6>
@@ -69,6 +69,7 @@
                 </div>
             </div>
         </div>
+        <Loading v-else/>
         <div></div>
         <Navbar/>
     </main>
@@ -77,6 +78,7 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
+import Loading from '@/components/Loading.vue';
 import { useTestsStore } from '@/stores/tests';
 
 const store = useTestsStore()
