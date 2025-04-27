@@ -8,7 +8,7 @@
                     <ul class="block__content">
                         <li class="block__item" @click="router.push('/culture')">1. Культура совместной работы</li>
                         <li class="block__item" @click="router.push('/roles')">2. Роли в команде</li>
-                        <li class="block__item" @click="router.push('/books-4')">3. Книги</li>
+                        <li class="block__item" @click="progressEnd">3. Книги</li>
                     </ul>
                     <div class="block__exit" @click="router.push('/home')">
                         <svg width="23" height="8" viewBox="0 0 23 8" fill="none">
@@ -29,7 +29,15 @@
 import Navbar from '@/components/Navbar.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import { useRouter } from 'vue-router';
+import { useTestsStore } from '@/stores/tests';
+
+const store = useTestsStore()
 const router = useRouter();
+
+const progressEnd = ()=>{
+    store.lastProgressStatus = true
+    router.push('/books-4')
+}
 </script>
 
 <style lang="scss">

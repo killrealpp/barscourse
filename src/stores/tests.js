@@ -17,6 +17,10 @@ export const useTestsStore = defineStore('tests', () => {
     const twoTestStatus = ref(null)
     const threeTestStatus = ref(null)
 
+    const spanWidth = ref(0)
+    const lastProgressStatus = ref(null)
+
+
     const fetchTests = async () => {
         loading.value = true;
         error.value = null;
@@ -149,10 +153,15 @@ export const useTestsStore = defineStore('tests', () => {
             })
             if(maxCount.countRight > Math.round(questNum * 0.7)){
                 testStatus.value = true
+                getWidthSpan()
             } else{
                 testStatus.value = false
             }
         }
+    }
+
+    const getWidthSpan = ()=>{
+        spanWidth.value += 1
     }
 
     const resetTest = ()=>{
@@ -163,6 +172,6 @@ export const useTestsStore = defineStore('tests', () => {
 
 
     return { tests, loading, error, fetchTests, questionCount, setQuestionCount, answerCounter, setCorrectAnswer, testStatus, correctAnswer, questionCount, resetTest,
-        setTestId, testId, getIdWithProg, oneTestStatus, twoTestStatus, threeTestStatus
+        setTestId, testId, getIdWithProg, oneTestStatus, twoTestStatus, threeTestStatus, spanWidth, lastProgressStatus
     };
 });
