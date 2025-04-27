@@ -20,6 +20,12 @@
         </div>
         <Loading v-else/>
         <Navbar/>
+        <div class="dialog" v-if="dialog" @click="exitDialog">
+            <div class="dialog-content" @click.stop>
+                <h4 class="dialog-content__title">Куратор ответит вам в ближайшее время!</h4>
+                <my-button class="dialog-content__btn" @click="exitDialog">Вернуться</my-button>
+            </div>
+        </div>
     </main>
 </template>
 
@@ -36,6 +42,7 @@ const router = useRouter();
 const question = ref('')
 const questionError = ref(false);
 const loading = ref(false);
+const dialog = ref(false)
 
 const submitQuestion = async ()=>{
     let isValid = true
@@ -79,7 +86,12 @@ const setQuestion = async(id)=>{
         console.e('Ошибка при отправьке вопроса', e)
     } finally{
         loading.value = false;
+        dialog.value = true
     }
+}
+
+const exitDialog = ()=>{
+    dialog.value = false
 }
 
 </script>
@@ -133,5 +145,43 @@ const setQuestion = async(id)=>{
     }
 }
 
+.dialog{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    &-content{
+        max-width: 250px;
+        width: 100%;
+        max-height: 200px;
+        height: 100%;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3), 0px 5px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        &__title{
+            text-align: center;
+            font-weight: 500;
+            font-size: 17px;
+        }
+
+        &__btn{
+            padding: 8px;
+        }
+    }
+}
 
 </style>
