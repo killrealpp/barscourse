@@ -15,23 +15,41 @@ import { useBreadcrumbsStore } from '../stores/breadcrumbs';
 const route = useRoute();
 const breadcrumbsStore = useBreadcrumbsStore();
 
-const generateBreadcrumbs = (path) => {
-    const segments = path.split('/').filter(Boolean);
+// Функция для формирования хлебных крошек
+const generateBreadcrumbs = () => {
     const crumbs = [];
+    let url = '';
 
-    segments.forEach((segment, index) => {
-        const url = '/' + segments.slice(0, index + 1).join('/');
-        const formattedTitle = decodeURIComponent(segment)
-            .replace(/-/g, ' ') 
-            .replace(/\b\w/g, l => l.toUpperCase()); 
+    // Перебираем все совпавшие маршруты (matched), чтобы собрать все части пути
+    route.matched.forEach((record, index) => {
+        // Для каждого сегмента мы добавляем путь с учетом параметров
+        if (record.path.includes(':')) {
+            // Если путь содержит параметр, заменяем его на реальное значение из route.params
+            Object.keys(route.params).forEach(param => {
+                const regex = new RegExp(':' + param, 'g');
+                record.path = record.path.replace(regex, route.params[param]);
+            });
+        }
+
+        url = url + record.path;
+
+        // Ищем мета-данные для текущего маршрута
+        const routeMeta = record.meta?.breadcrumb;
+
+        // Формируем название крошки с использованием мета-данных
+        const formattedTitle = routeMeta
+            ? routeMeta
+            : decodeURIComponent(url.split('/').pop()).replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
         crumbs.push({ title: formattedTitle, url });
     });
 
     breadcrumbsStore.setBreadcrumbs(crumbs);
 };
 
-watch(() => route.path, (newPath) => {
-    generateBreadcrumbs(newPath);
+// Следим за изменением пути маршрута
+watch(() => route.path, () => {
+    generateBreadcrumbs();
 }, { immediate: true });
 
 const breadcrumbs = breadcrumbsStore.breadcrumbs;
@@ -42,11 +60,10 @@ const breadcrumbs = breadcrumbsStore.breadcrumbs;
     font-size: 14px;
     font-weight: 400;
     padding: 25px 0;
-    
-    a{
+
+    a {
         text-decoration: none;
         color: #000;
     }
 }
-
 </style>
