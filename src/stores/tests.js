@@ -26,7 +26,7 @@ export const useTestsStore = defineStore('tests', () => {
         error.value = null;
 
         try {
-            const response = await axios.get('src/assets/test.json')
+            const response = await axios.get('/data/test.json')
             tests.value = [...response.data.tests]
         } catch (err) {
             error.value = 'Ошибка при загрузке тестов';
@@ -146,6 +146,8 @@ export const useTestsStore = defineStore('tests', () => {
             console.error('Ошибка при получении результатов:', e);
         }
     }
+
+
 
 
     const setTestStatus = (testData, testStatus, questNum)=>{
