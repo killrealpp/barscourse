@@ -50,6 +50,7 @@ const submitForm = async () => {
     const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
     // const userId = 1234567
     // надо будет убрать
+    // надо будет убрать
 
     if (isValid && userId) {
         loading.value = true
