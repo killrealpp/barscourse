@@ -85,7 +85,7 @@ export const useTestsStore = defineStore('tests', () => {
         // const tg_id = 1234
 
         try{    
-            const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
+            const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: tg_Id.toString()
             })
             const id = response.data.id
@@ -97,7 +97,7 @@ export const useTestsStore = defineStore('tests', () => {
 
     const setResult = async (id)=>{
         try{
-            const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/TestResult',{
+            const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/TestResult',{
                 userId: id,
                 testId: testId.value,
                 countRight: correctAnswer.value
@@ -114,12 +114,11 @@ export const useTestsStore = defineStore('tests', () => {
         // тут исправить
         // const tg_id = 1234
         try{    
-            const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
+            const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: tg_id.toString()
             })
             const id = response.data.id
             getResult(id)
-            // исправть
         } catch(e){
             console.error('ошибка при получении id ', e)
         } 
@@ -131,7 +130,7 @@ export const useTestsStore = defineStore('tests', () => {
     const getResult = async (id) => {
         spanWidth.value = 0
         try {
-            const response = await axios.get(`https://60d9-185-77-216-6.ngrok-free.app/api/TestResult/user/${id}`, {
+            const response = await axios.get(`https://654f-185-77-216-6.ngrok-free.app/api/TestResult/user/${id}`, {
                 withCredentials: true, // ВАЖНО! Для отправки cookies с запросом
                 headers: {
                     'Content-Type': 'application/json',

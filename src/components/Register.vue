@@ -56,7 +56,7 @@ const submitForm = async () => {
         loading.value = true
         userStore.setUserData(userId, fio.value)
         try {
-            const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users', {
+            const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Users', {
                 name: fio.value,
                 surname: "student",
                 tgId: userId.toString(),

@@ -62,7 +62,7 @@ const submitQuestion = async ()=>{
         loading.value = true
 
         try{
-            const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
+            const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: tg_id.toString()
             })
             const id = response.data.id
@@ -77,7 +77,7 @@ const submitQuestion = async ()=>{
 
 const setQuestion = async(id)=>{
     try{
-        const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Message',{
+        const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Message',{
             messageText: question.value,
             senderId: id,
             recipientId: 2

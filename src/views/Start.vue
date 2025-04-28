@@ -25,7 +25,7 @@ onMounted(async ()=>{
     console.log(' tot',userId.toString())
     if (userId){
         try{
-            const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
+            const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: userId.toString(),
             })
             console.log(response)
