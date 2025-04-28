@@ -1,7 +1,7 @@
 <template>
     <main class="main">
         <Breadcrumbs/>
-        <Blocks/>
+        <blocks/>
         <Navbar/>
     </main>
 </template>
@@ -9,7 +9,7 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
-import Blocks from '@/components/Blocks.vue';
+import blocks from '@/components/blocks.vue';
 </script>
 
 <style lang="scss" scoped>
