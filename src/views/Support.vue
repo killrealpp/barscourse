@@ -56,6 +56,7 @@ const submitQuestion = async ()=>{
 
     const tg_id = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
     // const tg_id = 1234
+    console.log(tg_id)
 
     if(isValid){
         loading.value = true

@@ -59,7 +59,7 @@ const submitForm = async () => {
             const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users', {
                 name: fio.value,
                 surname: "student",
-                tgId: "userId",
+                tgId: userId.toString(),
                 roleId: 2
             })
             console.log('клик по кнопке', response)

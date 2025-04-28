@@ -21,13 +21,14 @@ onMounted(async ()=>{
     // console.log('totot', userId)
     // console.log('tot chto ', window.Telegram?.WebApp?.initDataUnsafe?.user?.id)
     const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
-    // const userId = 123457
-    console.log(' tot',userId)
+    // const userId = 1234
+    console.log(' tot',userId.toString())
     if (userId){
         try{
             const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: userId.toString(),
             })
+            console.log(response)
             console.log('tesetese', response.status)
             if (response.status === 401){
                 registerStatus.value = false
