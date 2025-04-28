@@ -19,6 +19,7 @@ const loading = ref(true);
 onMounted(async ()=>{
     const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
     // const userId = 123457
+    console.log(' tot',userId)
     if (userId){
         try{
             const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
