@@ -47,8 +47,8 @@ const submitForm = async () => {
         fioError.value = false;
     }
 
-    // const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
-    const userId = 1234567
+    const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+    // const userId = 1234567
     // надо будет убрать
 
     if (isValid && userId) {

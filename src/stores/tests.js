@@ -81,12 +81,12 @@ export const useTestsStore = defineStore('tests', () => {
     }
 
     const getId = async ()=>{
-        // const tgId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
-        const tg_id = 1234
+        const tg_Id = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+        // const tg_id = 1234
 
         try{    
             const response = await axios.post('https://f274-84-17-55-155.ngrok-free.app/api/Users/authenticate', {
-                tgId: tg_id.toString()
+                tgId: tg_Id.toString()
             })
             const id = response.data.id
             setResult(id)

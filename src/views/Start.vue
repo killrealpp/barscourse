@@ -17,11 +17,8 @@ const registerStatus = ref(false);
 const loading = ref(true);
 
 onMounted(async ()=>{
-    // const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
-    const userId = 123457
-    console.log(userId)
-    // надо будет убрать
-
+    const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+    // const userId = 123457
     if (userId){
         try{
             const response = await axios.post('https://f274-84-17-55-155.ngrok-free.app/api/Users/authenticate', {
