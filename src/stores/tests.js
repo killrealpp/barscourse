@@ -128,27 +128,23 @@ export const useTestsStore = defineStore('tests', () => {
     }
 
     const getResult = async (id) => {
-        spanWidth.value = 0
+        // spanWidth.value = 0
         try {
-            const response = await axios.get(`https://60d9-185-77-216-6.ngrok-free.app/api/TestResult/user/${id}`, {
-                headers: {
-                    'Content-Type': 'application/json', 
-                },
-                // withCredentials: true, 
-            });
-            console.log('до фильтрации',typeof response.data);
+            const response = await axios.get("/api/TestResult/user/1");
+
+            // console.log('до фильтрации',typeof response.data);
 
             console.log('респонс', response)
 
-            const onefilterData = response.data.filter(item => item.testId === 6);
-            const twofilterData = response.data.filter(item => item.testId === 10);
-            const threefilterData = response.data.filter(item => item.testId === 9);
+            // const onefilterData = response.data.filter(item => item.testId === 6);
+            // const twofilterData = response.data.filter(item => item.testId === 10);
+            // const threefilterData = response.data.filter(item => item.testId === 9);
 
-            if(onefilterData.length && twofilterData.length && threefilterData.length){
-                setTestStatus(onefilterData, oneTestStatus, 5)
-                setTestStatus(twofilterData, twoTestStatus, 5)
-                setTestStatus(threefilterData, threeTestStatus, 10)
-            }
+            // if(onefilterData.length && twofilterData.length && threefilterData.length){
+            //     setTestStatus(onefilterData, oneTestStatus, 5)
+            //     setTestStatus(twofilterData, twoTestStatus, 5)
+            //     setTestStatus(threefilterData, threeTestStatus, 10)
+            // }
 
         } catch (e) {
             console.error('Ошибка при получении результатов:', e);
