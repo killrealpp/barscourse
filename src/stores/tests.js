@@ -118,50 +118,36 @@ export const useTestsStore = defineStore('tests', () => {
                 tgId: tg_id.toString()
             })
             const id = response.data.id
-            getResult(1)
+            getResult(id)
             // исправть
         } catch(e){
             console.error('ошибка при получении id ', e)
-        } finally{
-            loading.value = false
-        }
+        } 
+        // finally{
+            // loading.value = false
+        // }
     }
 
     const getResult = async (id) => {
-        // spanWidth.value = 0
+        spanWidth.value = 0
         try {
-            // const response = await axios.get(
-            //     'https://60d9-185-77-216-6.ngrok-free.app/api/TestResult/user/1',
-            //     {
-            //         headers: {
-            //         "Accept": "application/json", 
-            //         "Content-Type": "application/json"
-            //         }
-            //     }
-            // );
-
-            const response = await fetch('https://60d9-185-77-216-6.ngrok-free.app/api/TestResult/user/1', {
-                method: 'GET',
-                mode: 'cors', // ВАЖНО!
-                credentials: 'include'
+            const response = await axios.get(`https://60d9-185-77-216-6.ngrok-free.app/api/TestResult/user/${id}`, {
+                withCredentials: true, // ВАЖНО! Для отправки cookies с запросом
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             });
             
             console.log('респонс', response)
-            
-            const data = await response.json();
-            // console.log('до фильтрации',typeof response.data);
 
-            console.log('data', data)
 
-            // const onefilterData = response.data.filter(item => item.testId === 6);
-            // const twofilterData = response.data.filter(item => item.testId === 10);
-            // const threefilterData = response.data.filter(item => item.testId === 9);
+            const onefilterData = response.data.filter(item => item.testId === 6);
+            const twofilterData = response.data.filter(item => item.testId === 10);
+            const threefilterData = response.data.filter(item => item.testId === 9);
 
-            // if(onefilterData.length && twofilterData.length && threefilterData.length){
-            //     setTestStatus(onefilterData, oneTestStatus, 5)
-            //     setTestStatus(twofilterData, twoTestStatus, 5)
-            //     setTestStatus(threefilterData, threeTestStatus, 10)
-            // }
+            setTestStatus(onefilterData, oneTestStatus, 5)
+            setTestStatus(twofilterData, twoTestStatus, 5)
+            setTestStatus(threefilterData, threeTestStatus, 10)
 
         } catch (e) {
             console.error('Ошибка при получении результатов:', e);
@@ -188,6 +174,7 @@ export const useTestsStore = defineStore('tests', () => {
 
     const getWidthSpan = ()=>{
         spanWidth.value += 1
+        loading.value = false
     }
 
     const resetTest = ()=>{
