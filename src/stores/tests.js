@@ -111,6 +111,8 @@ export const useTestsStore = defineStore('tests', () => {
     const getIdWithProg = async()=>{
         loading.value = true
         const tg_id = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+        // тут исправить
+        // const tg_id = 1234
         try{    
             const response = await axios.post('https://60d9-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: tg_id.toString()
@@ -131,19 +133,15 @@ export const useTestsStore = defineStore('tests', () => {
                 headers: {
                     'Content-Type': 'application/json', 
                 },
-                withCredentials: true, 
+                // withCredentials: true, 
             });
             console.log('до фильтрации',typeof response.data);
 
-
+            console.log('респонс', response)
 
             const onefilterData = response.data.filter(item => item.testId === 6);
             const twofilterData = response.data.filter(item => item.testId === 10);
             const threefilterData = response.data.filter(item => item.testId === 9);
-
-            console.log('первый', onefilterData)
-            console.log('второй', twofilterData)
-            console.log('третий', threefilterData)
 
             if(onefilterData.length && twofilterData.length && threefilterData.length){
                 setTestStatus(onefilterData, oneTestStatus, 5)
@@ -155,9 +153,6 @@ export const useTestsStore = defineStore('tests', () => {
             console.error('Ошибка при получении результатов:', e);
         }
     }
-
-
-    
 
 
 
