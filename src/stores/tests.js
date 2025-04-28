@@ -123,9 +123,9 @@ export const useTestsStore = defineStore('tests', () => {
         } catch(e){
             console.error('ошибка при получении id ', e)
         } 
-        // finally{
-            // loading.value = false
-        // }
+        finally{
+            loading.value = false
+        }
     }
 
     const getResult = async (id) => {
@@ -174,7 +174,6 @@ export const useTestsStore = defineStore('tests', () => {
 
     const getWidthSpan = ()=>{
         spanWidth.value += 1
-        loading.value = false
     }
 
     const resetTest = ()=>{
