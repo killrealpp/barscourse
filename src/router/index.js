@@ -17,7 +17,7 @@ import Lider from '@/views/Lider.vue';
 import LiderStyle from '@/views/Lider-style.vue';
 import books2 from '@/views/books-2.vue';
 import Models from '@/views/Models.vue';
-import Deleg from '@/views/deleg.vue';
+import Deleg from '@/views/Deleg.vue';
 import Books3 from '@/views/books-3.vue';
 import Progress from '@/views/Progress.vue';
 import Support from '@/views/Support.vue';
