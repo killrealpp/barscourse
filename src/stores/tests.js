@@ -145,10 +145,13 @@ export const useTestsStore = defineStore('tests', () => {
                 mode: 'cors', // ВАЖНО!
                 credentials: 'include'
             });
-
+            
+            console.log('респонс', response)
+            
+            const data = await response.json();
             // console.log('до фильтрации',typeof response.data);
 
-            console.log('респонс', response)
+            console.log('data', data)
 
             // const onefilterData = response.data.filter(item => item.testId === 6);
             // const twofilterData = response.data.filter(item => item.testId === 10);
