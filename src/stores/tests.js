@@ -131,7 +131,7 @@ export const useTestsStore = defineStore('tests', () => {
         // spanWidth.value = 0
         try {
             const response = await axios.get(
-                'https://68d9-185-77-216-6.ngrok-free.app/api/TestResult/user/1',
+                'https://60d9-185-77-216-6.ngrok-free.app/api/TestResult/user/1',
                 {
                     headers: {
                     "Accept": "application/json", 
