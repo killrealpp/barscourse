@@ -134,9 +134,6 @@ export const useTestsStore = defineStore('tests', () => {
                 method: 'GET',
                 mode: 'cors', // ВАЖНО!
                 credentials: 'include',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
             });
 
             const data = await response.json(); 
