@@ -130,10 +130,10 @@ export const useTestsStore = defineStore('tests', () => {
     const getResult = async (id) => {
         spanWidth.value = 0
         try {
-            const response = await fetch(`https://654f-185-77-216-6.ngrok-free.app/api/TestResult/user/${id}`, {
+            const response = await fetch(`https://654f-185-77-216-6.ngrok-free.app/api/TestResult/user/${id}`,{
                 method: 'GET',
-                mode: 'cors', // ВАЖНО!
-                credentials: 'include',
+                mode: 'cors',
+                credentials: 'include'
             });
 
             const data = await response.json(); 

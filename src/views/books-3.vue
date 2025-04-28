@@ -70,6 +70,7 @@ const router = useRouter();
         &__text{
             font-weight: 400;
             text-align: center;
+            font-size: 12px;
         }
     }
 
