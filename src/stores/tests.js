@@ -135,18 +135,25 @@ export const useTestsStore = defineStore('tests', () => {
             });
             console.log('до фильтрации',typeof response.data);
 
+
+
             const onefilterData = response.data.filter(item => item.testId === 6);
             const twofilterData = response.data.filter(item => item.testId === 10);
             const threefilterData = response.data.filter(item => item.testId === 9);
 
-            setTestStatus(onefilterData, oneTestStatus, 5)
-            setTestStatus(twofilterData, twoTestStatus, 5)
-            setTestStatus(threefilterData, threeTestStatus, 10)
+            if(onefilterData.length && twofilterData.length && threefilterData.length){
+                setTestStatus(onefilterData, oneTestStatus, 5)
+                setTestStatus(twofilterData, twoTestStatus, 5)
+                setTestStatus(threefilterData, threeTestStatus, 10)
+            }
+
         } catch (e) {
             console.error('Ошибка при получении результатов:', e);
         }
     }
 
+
+    
 
 
 
