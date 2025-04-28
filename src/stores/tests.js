@@ -20,7 +20,7 @@ export const useTestsStore = defineStore('tests', () => {
     const spanWidth = ref(0)
     const lastProgressStatus = ref(null)
 
-    
+
     const fetchTests = async () => {
         loading.value = true;
         error.value = null;
@@ -36,42 +36,42 @@ export const useTestsStore = defineStore('tests', () => {
         }
     };
 
-    const setQuestionCount = (count)=>{
+    const setQuestionCount = (count) => {
         questionCount.value = count
         console.log('длина в стор', questionCount.value)
     }
 
-    const setTestId = (id)=>{
+    const setTestId = (id) => {
         console.log(id)
-        
-        if(id === 0){
+
+        if (id === 0) {
             testId.value = 6
         }
-        if(id === 1){
+        if (id === 1) {
             testId.value = 9
         }
-        if(id === 2){
-            testId.value =10
+        if (id === 2) {
+            testId.value = 10
         }
         console.log(testId.value)
     }
 
-    const setCorrectAnswer = ()=>{
+    const setCorrectAnswer = () => {
         correctAnswer.value += 1
     }
 
-    const answerCounter = ()=>{
-        if (answerCount.value < questionCount.value - 1){
-            answerCount.value = answerCount.value + 1 
+    const answerCounter = () => {
+        if (answerCount.value < questionCount.value - 1) {
+            answerCount.value = answerCount.value + 1
             console.log(answerCount.value)
         } else {
             console.log('ответили на все вопросов')
             console.log('Правильных ответов: ', correctAnswer.value)
             console.log('сумма', questionCount.value)
-            if(correctAnswer.value >= Math.round(questionCount.value * 0.7)){
+            if (correctAnswer.value >= Math.round(questionCount.value * 0.7)) {
                 testStatus.value = 1
                 console.log('молодец пять')
-            } else{
+            } else {
                 testStatus.value = 2
                 console.log('молодец 2')
             }
@@ -80,49 +80,49 @@ export const useTestsStore = defineStore('tests', () => {
         }
     }
 
-    const getId = async ()=>{
+    const getId = async () => {
         const tg_Id = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
         // const tg_id = 1234
 
-        try{    
+        try {
             const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: tg_Id.toString()
             })
             const id = response.data.id
             setResult(id)
-        } catch (e){
-            console.error('Ошибка при получении id',e)
+        } catch (e) {
+            console.error('Ошибка при получении id', e)
         }
     }
 
-    const setResult = async (id)=>{
-        try{
-            const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/TestResult',{
+    const setResult = async (id) => {
+        try {
+            const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/TestResult', {
                 userId: id,
                 testId: testId.value,
                 countRight: correctAnswer.value
             })
             console.log(response.data)
-        }catch(e){
+        } catch (e) {
             console.error('ошибка при отправке результатов', e)
         }
-    } 
+    }
 
-    const getIdWithProg = async()=>{
+    const getIdWithProg = async () => {
         loading.value = true
         const tg_id = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
         // тут исправить
         // const tg_id = 1234
-        try{    
+        try {
             const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: tg_id.toString()
             })
             const id = response.data.id
             getResult(id)
-        } catch(e){
+        } catch (e) {
             console.error('ошибка при получении id ', e)
-        } 
-        finally{
+        }
+        finally {
             loading.value = false
         }
     }
@@ -130,19 +130,21 @@ export const useTestsStore = defineStore('tests', () => {
     const getResult = async (id) => {
         spanWidth.value = 0
         try {
-            const response = await axios.get(`https://654f-185-77-216-6.ngrok-free.app/api/TestResult/user/${id}`, {
-                withCredentials: true, // ВАЖНО! Для отправки cookies с запросом
+            const response = await fetch(`https://654f-185-77-216-6.ngrok-free.app/api/TestResult/user/${id}`, {
+                method: 'GET',
+                mode: 'cors', // ВАЖНО!
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-            
-            console.log('респонс', response)
 
+            const data = await response.json(); 
 
-            const onefilterData = response.data.filter(item => item.testId === 6);
-            const twofilterData = response.data.filter(item => item.testId === 10);
-            const threefilterData = response.data.filter(item => item.testId === 9);
+            const onefilterData = data.filter(item => item.testId === 6);
+            const twofilterData = data.filter(item => item.testId === 10);
+            const threefilterData = data.filter(item => item.testId === 9);
+
 
             setTestStatus(onefilterData, oneTestStatus, 5)
             setTestStatus(twofilterData, twoTestStatus, 5)
@@ -155,34 +157,35 @@ export const useTestsStore = defineStore('tests', () => {
 
 
 
-    const setTestStatus = (testData, testStatus, questNum)=>{
-        if (testData.length === 0){
+    const setTestStatus = (testData, testStatus, questNum) => {
+        if (testData.length === 0) {
             testStatus.value = false
-        } else{
-            const maxCount = testData.reduce((max, current) =>{
+        } else {
+            const maxCount = testData.reduce((max, current) => {
                 return (current.countRight > max.countRight) ? current : max
             })
-            if(maxCount.countRight > Math.round(questNum * 0.7)){
+            if (maxCount.countRight > Math.round(questNum * 0.7)) {
                 testStatus.value = true
                 getWidthSpan()
-            } else{
+            } else {
                 testStatus.value = false
             }
         }
     }
 
-    const getWidthSpan = ()=>{
+    const getWidthSpan = () => {
         spanWidth.value += 1
     }
 
-    const resetTest = ()=>{
-        answerCount.value = 0;  
-        correctAnswer.value = 0;  
-        testStatus.value = 0;  
+    const resetTest = () => {
+        answerCount.value = 0;
+        correctAnswer.value = 0;
+        testStatus.value = 0;
     }
 
 
-    return { tests, loading, error, fetchTests, questionCount, setQuestionCount, answerCounter, setCorrectAnswer, testStatus, correctAnswer, questionCount, resetTest,
+    return {
+        tests, loading, error, fetchTests, questionCount, setQuestionCount, answerCounter, setCorrectAnswer, testStatus, correctAnswer, questionCount, resetTest,
         setTestId, testId, getIdWithProg, oneTestStatus, twoTestStatus, threeTestStatus, spanWidth, lastProgressStatus
     };
 });
