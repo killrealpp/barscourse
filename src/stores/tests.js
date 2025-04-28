@@ -118,7 +118,7 @@ export const useTestsStore = defineStore('tests', () => {
                 tgId: tg_id.toString()
             })
             const id = response.data.id
-            getResult(15)
+            getResult(1)
             // исправть
         } catch(e){
             console.error('ошибка при получении id ', e)
