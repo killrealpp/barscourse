@@ -17,6 +17,7 @@ const registerStatus = ref(false);
 const loading = ref(true);
 
 onMounted(async ()=>{
+    console.log('tot chto ', window.Telegram?.WebApp?.initDataUnsafe?.user?.id)
     const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
     // const userId = 123457
     console.log(' tot',userId)
