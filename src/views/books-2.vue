@@ -48,7 +48,7 @@ const router = useRouter();
 <style lang="scss">
 .books{
     background-color: #fff;
-    padding-top: 14px;
+    padding-top: 5px;
     margin-bottom: auto;
     &__inner{
         display: flex;

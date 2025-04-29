@@ -110,9 +110,9 @@ export const useTestsStore = defineStore('tests', () => {
 
     const getIdWithProg = async () => {
         loading.value = true
-        const tg_id = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+        // const tg_id = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
         // тут исправить
-        // const tg_id = 1234
+        const tg_id = 1234
         try {
             const response = await axios.post('https://654f-185-77-216-6.ngrok-free.app/api/Users/authenticate', {
                 tgId: tg_id.toString()
@@ -129,11 +129,17 @@ export const useTestsStore = defineStore('tests', () => {
 
     const getResult = async (id) => {
         spanWidth.value = 0
-        const userId = id.toString();
         try {
-            const response = await fetch(`https://654f-185-77-216-6.ngrok-free.app/api/TestResult/user/${userId}`,{
+            // const userId = id.toString();
+            // const response = await fetch(`https://654f-185-77-216-6.ngrok-free.app/api/TestResult/user/${userId}`,{
+            //     credentials: 'include'
+            // });
+            // const userId = id.toString();
+            const response = await fetch(`https://654f-185-77-216-6.ngrok-free.app/api/TestResult`,{
                 credentials: 'include'
             });
+
+            console.log(response)
 
             const data = await response.json(); 
 
