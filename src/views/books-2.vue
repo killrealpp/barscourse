@@ -53,7 +53,7 @@ const router = useRouter();
     &__inner{
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
         align-items: center;
     }
 

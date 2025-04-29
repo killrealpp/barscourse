@@ -14,7 +14,7 @@
                         </div>
                         <div class="books-pdf">
                             <div class="books-pdf__item">
-                                <a href="" download="book-1.pdf">
+                                <a class="books-fix" href="" download="book-1.pdf">
                                     <img src="/pdf.svg" alt="" class="books-pdf__item-img">
                                     <h6 class="books-pdf__item-title">Сверх продуктивность,
                                         Михаил Алистер
@@ -55,7 +55,7 @@ const router = useRouter();
     &__inner{
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
         align-items: center;
     }
 
@@ -99,6 +99,7 @@ const router = useRouter();
                 text-align: center;
                 max-width: 131px;
                 width: 100%;
+                color: #000;
             }
         }
     }
@@ -114,5 +115,11 @@ const router = useRouter();
     &__dark, .books__light{
         padding: 8px 55px;
     }
+}
+
+.books-fix{
+    display: flex;flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 </style>
